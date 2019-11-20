@@ -1,0 +1,12 @@
+.main-header
+  .main-header__left-box
+    %h2{class: "main-header__left-box__current-group", "data-group-id": "#{@group.id}"}
+      = @group.name
+
+    %ul.main-header__left-box__member-list
+      Member：
+      - @group.users.each do |user|
+        %li.main-header__left-box__member-list__member
+          = user.name
+  = link_to edit_group_path(@group.id) do
+    .main-header__edit-btn Edit

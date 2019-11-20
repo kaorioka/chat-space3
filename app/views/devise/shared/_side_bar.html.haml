@@ -1,0 +1,21 @@
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name
+          = current_user.name
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+            = link_to new_group_path do
+              = fa_icon 'pencil-square-o', class: 'icon'
+          %li.side-header__box__menu__edit-user
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
+    .groups
+      - current_user.groups.order("created_at DESC").each do |group|
+        %div{class: "group", "data-group-id": "#{group.id}"}
+          = link_to group_messages_path(group) do
+            %p.group__group-name
+              = group.name
+            %p.group__latest-message
+              = group.show_last_message

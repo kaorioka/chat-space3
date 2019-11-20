@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both
+}
+
+::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+
+   .main-header {
+      height: 100px;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px #eee;
+
+      & a {
+        color: $light-blue;
+    
+        &:visited, &:hover, &:active {
+          color: $light-blue;
+        }
+
+      }
+
+      &__edit-btn {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        margin-top: 30px;
+        border: solid 1px $light-blue;
+        position: absolute;
+        right: 40px;        
+      }
+
+    }
+
+    .main-header__left-box {
+      margin-top: 35px;
+
+      &__current-group {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+  
+      &__member-list {
+          display: flex;
+          font-size: 12px;
+          color: $light_gray;
+    
+          li+li {
+            margin-left: 0.3rem;
+          }
+
+      }
+
+    }
+
+
+
+  .messages {
+    height: calc(100vh - 190px);
+    padding: 46px 40px;
+    background-color: #fafafa;
+    overflow: scroll;
+
+    .message {
+      padding-bottom: 40px;
+
+      &__upper-info {
+        display: flex;
+        margin-bottom: 10px;
+
+        &__talker {
+          color: $message-text;
+          font-size: 16px;
+          font-weight: bold;
+        }
+    
+        &__date {
+          color: $light_gray;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+
+        &__text {
+          color: $message-text;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+
+      }
+  
+    }
+
+  }
+
+  #message_content {
+    height: 50px;
+    width: 100%;
+    padding: 0 40px 0 10px;
+    color: $message-text;
+    border: none;
+  }
+  
+  #message_image {
+    display: none;
+  }
+
+  .form {
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+
+    & form {
+      display: flex;
+    }
+    
+    &__submit {
+      width: 100px;
+      height: 50px;
+      padding: 0 30px;
+      margin-left: 15px;
+      background-color: $light-blue;
+      color: $white;
+      cursor: pointer;
+    }
+
+    &__mask{
+      position: relative;
+
+      &__image {
+        font-size: 1.3rem;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+
+        .icon.active{
+          color: $light-blue;
+        }
+
+      }
+
+    }
+
+  }
+  
+  .field_with_errors {
+    width: 100%;
+  }
+
+}
