@@ -16,38 +16,23 @@ $(document).ready(function () {
 
     var data_id = `data-message-id=${message.id}`;
     var image = message.image ? `<img src= ${message.image}>` : "";
-    var upper_info = `<div class="message__upper-info">
-                        <p class="message__upper-info__talker">
+
+    var data_id = `data-message-id=${message.id}`;
+    var image = message.image ? `<img src= ${message.image}>` : "";
+    var html = `<div class="message" ${data_id}>
+                    <div class="message__upper-info">
+                      <p class="message__upper-info__talker">
                         ${message.user_name}
-                        </p >
-                        <p class="message__upper-info__date">
-                          ${message.created_at}
-                        </p>
-                      </div >`;
-
-    if (message.content && message.image) {
-
-      var html = `<div class="message" ${data_id}>
-                    ${upper_info}
+                      </p >
+                      <p class="message__upper-info__date">
+                        ${message.created_at}
+                      </p>
+                    </div >
                       <p class="message__text">${message.content}</p>
-                    ${image}
-                  </div > `;
-
-    } else if (message.content) {
-
-      var html = `<div class="message" ${data_id}>
-                    ${upper_info}
-                      <p class="message__text">${message.content}</p>
-                  </div > `;
-
-    } else if (message.image) {
-
-      var html = `<div class="message" ${data_id}>
-                    ${upper_info}
-                    ${image}
-                  </div > `;
-
-    };
+                      <p class="lower-message__content">
+                      ${ image}
+                      </p>
+                    </div > `;
     return html;
   }; //html template //
 
@@ -88,7 +73,7 @@ $(document).ready(function () {
 
   //reload function
   var reloadMessages = function () {
-
+    console.log("aaaaaa");
     if (current_page.match(/\/groups\/\d+\/messages/)) {
 
       var last_message = $(".message:last").data("message-id") || 0;
